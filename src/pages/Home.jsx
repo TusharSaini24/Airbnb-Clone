@@ -29,6 +29,8 @@ const Home = () => {
       <div className="home_section2">
         {properties.map((p, index) => (
           <Card
+            key={p._id}
+            id={p._id}
             src={p.image}
             title={p.title}
             description={p.description}
@@ -48,6 +50,8 @@ const Container = styled.div`
   flex-direction: column;
   overflow-x: hidden;
   overflow: hidden;
+  position: relative;
+  top: 100px;
   .home_section1 {
     display: flex;
   }

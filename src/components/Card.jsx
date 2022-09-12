@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-const Card = ({ src, title, description, price, location }) => {
+import { Link } from "react-router-dom";
+const Card = ({ id, src, title, description, price, location }) => {
   return (
     <Container>
-      <img src={src} alt="" />
-      <div className="card__info">
-        <h2>{location}</h2>
-        <h2>{title}</h2>
-        <h4>{description}</h4>
-        <h3>{price}</h3>
-      </div>
+      <Link to={`/property/${id}`}>
+        <img src={src} alt="" />
+        <div className="card__info">
+          <h2>{location}</h2>
+          <h2>{title}</h2>
+          <h4>{description}</h4>
+          <h3>{price}</h3>
+        </div>
+      </Link>
     </Container>
   );
 };
@@ -20,6 +23,10 @@ const Container = styled.div`
   overflow: hidden;
   box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
   transition: transform 100ms ease-in;
+  a {
+    text-decoration: none;
+    color: #7d8ea1;
+  }
   cursor: pointer;
   &:hover {
     transform: scale(1.07);

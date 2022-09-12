@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GrLanguage } from "react-icons/gr";
 import { MdExpandMore } from "react-icons/md";
@@ -7,8 +7,14 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { HiOutlineMenu } from "react-icons/hi";
 import styled from "styled-components";
 import PopUp from "./PopUp";
+
 const Header = () => {
+  const navigate = useNavigate();
   const [togglePopUp, setTogglePopUp] = useState(false);
+  const searchCountry = useRef();
+  const handleSearchCountries = () => {
+    navigate("/search", { state: { country: searchCountry.current.value } });
+  };
   return (
     <Container>
       <Link to="/">
@@ -20,10 +26,9 @@ const Header = () => {
       </Link>
 
       <div className="header__center">
-        <input type="text" />
-        <Link to="/search">
-          <AiOutlineSearch />
-        </Link>
+        <input type="text" placeholder="Search country" ref={searchCountry} />
+
+        <AiOutlineSearch onClick={handleSearchCountries} />
       </div>
 
       <div className="header__right">
@@ -56,6 +61,7 @@ const Container = styled.div`
   z-index: 100;
   width: 100%;
   border-bottom: 1px solid #dddddd;
+  overflow: hidden;
   .header__icon {
     object-fit: contain;
     height: 100px;

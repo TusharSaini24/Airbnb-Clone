@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Login from "../pages/Login";
+
 const PopUp = () => {
+  const [toggleLoginPage, setToggleLoginPage] = useState(false);
   return (
     <Container>
       <div className="signup">Sign Up</div>
-      <div className="login">Log In</div>
+      <div
+        className="login"
+        onClick={() => setToggleLoginPage(!toggleLoginPage)}
+      >
+        Log In
+      </div>
+      {toggleLoginPage && <Login />}
     </Container>
   );
 };
@@ -21,6 +30,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 0.6rem;
   box-sizing: border-box;
+
   .signup {
     font-size: 16px;
     font-weight: bold;
