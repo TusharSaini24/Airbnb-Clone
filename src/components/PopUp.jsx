@@ -6,7 +6,12 @@ const PopUp = () => {
   const [toggleLoginPage, setToggleLoginPage] = useState(false);
   return (
     <Container>
-      <div className="signup">Sign Up</div>
+      <div
+        className="signup"
+        onClick={() => setToggleLoginPage(!toggleLoginPage)}
+      >
+        Sign Up
+      </div>
       <div
         className="login"
         onClick={() => setToggleLoginPage(!toggleLoginPage)}
@@ -30,7 +35,6 @@ const Container = styled.div`
   flex-direction: column;
   gap: 0.6rem;
   box-sizing: border-box;
-
   .signup {
     font-size: 16px;
     font-weight: bold;

@@ -61,7 +61,6 @@ const Container = styled.div`
   z-index: 100;
   width: 100%;
   border-bottom: 1px solid #dddddd;
-  overflow: hidden;
   .header__icon {
     object-fit: contain;
     height: 100px;

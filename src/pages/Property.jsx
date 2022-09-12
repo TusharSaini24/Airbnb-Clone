@@ -95,6 +95,7 @@ const Container = styled.div`
   box-shadow: 2px 2px 5px #727272;
   padding: 5rem;
   overflow: hidden;
+  z-index: -1;
   div {
     width: 85%;
     .header {
